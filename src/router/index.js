@@ -1,20 +1,37 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import { routerMode } from '@/config/env'
+import Base from '@/common/Base'
+
+import HelloWorld from '@/components/HelloWorld'
 
 Vue.use(Router)
 
 const router = [
   {
-    path: '/',
-    name: 'Hello',
-    component: HelloWorld
+    path: '/app',
+    name: 'base',
+    component: Base,
+    children: [
+      {
+        path: '',
+        name: 'Hello',
+        component: HelloWorld
+      }
+    ]
+  },
+  {
+    path: '',
+    redirect: { name: 'Hello' }
+  },
+  {
+    path: 'dd',
+    redirect: { name: 'Hello' }
   }
 ]
 
 export default new Router({
-  // mode: routerMode,
+  mode: routerMode,
   strict: process.env.NODE_ENV !== 'production',
   routes: router,
   scrollBehavior(to, from, savedPosition) {

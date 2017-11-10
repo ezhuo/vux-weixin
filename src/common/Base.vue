@@ -1,28 +1,44 @@
 <template>
-  <div style="height:100%;">
+  <drawer width="200px;" :show.sync="sideMenu.drawerVisibility" :show-mode="sideMenu.showModeValue" :placement="sideMenu.showPlacementValue" :drawer-style="{'background-color':'#35495e', width: '200px'}">
 
-    <div v-transfer-dom>
-      <loading v-model="isLoading"></loading>
+    <!-- drawer content -->
+    <div slot="drawer">
+      <app-side-menu></app-side-menu>
     </div>
 
-    <!-- remember to import BusPlugin in main.js if you use components: x-img and sticky -->
-    <transition @after-enter="$vux.bus && $vux.bus.$emit('vux:after-view-enter')" :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')">
-      <router-view class="router-view"></router-view>
-    </transition>
+    <!-- main content -->
+    <view-box ref="viewBox" body-padding-top="46px" body-padding-bottom="55px">
 
-  </div>
+      <!-- <app-header></app-header> -->
+
+      <router-view class="router-view"></router-view>
+
+      <app-footer></app-footer>
+
+    </view-box>
+
+  </drawer>
 </template>
 
 <script>
-import { Loading, TransferDom } from 'vux'
-import { mapState } from 'vuex'
+import { Drawer, ViewBox, Loading, TransferDom } from 'vux'
+
+import { mapState, mapActions } from 'vuex'
+import AppHeader from './header'
+import AppFooter from './footer'
+import AppSideMenu from './menus/sideMenu'
 
 export default {
   directives: {
     TransferDom
   },
   components: {
-    Loading
+    Drawer,
+    ViewBox,
+    Loading,
+    AppFooter,
+    AppHeader,
+    AppSideMenu
   },
   methods: {},
   mounted() {},
@@ -31,8 +47,7 @@ export default {
     ...mapState({
       route: state => state.route,
       deviceready: state => state.app.deviceready,
-      isLoading: state => state.isLoading,
-      direction: state => state.direction
+      sideMenu: state => state.sideMenu
     })
   },
   data() {
@@ -42,52 +57,10 @@ export default {
 </script>
 
 <style lang="less">
-@import '~vux/src/styles/reset.less';
-@import '~vux/src/styles/1px.less';
-@import '~vux/src/styles/tap.less';
-@import './assets/style/index.less';
-</style>
-
-
-<style lang="less">
 .router-view {
   width: 100%;
   // top: 46px;
   top: 0px;
-}
-
-.vux-pop-out-enter-active,
-.vux-pop-out-leave-active,
-.vux-pop-in-enter-active,
-.vux-pop-in-leave-active {
-  will-change: transform;
-  transition: all 0.5s;
-  height: 100%;
-  // top: 46px;
-  top: 0px;
-  position: absolute;
-  backface-visibility: hidden;
-  perspective: 1000;
-}
-
-.vux-pop-out-enter {
-  opacity: 0;
-  transform: translate3d(-100%, 0, 0);
-}
-
-.vux-pop-out-leave-active {
-  opacity: 0;
-  transform: translate3d(100%, 0, 0);
-}
-
-.vux-pop-in-enter {
-  opacity: 0;
-  transform: translate3d(100%, 0, 0);
-}
-
-.vux-pop-in-leave-active {
-  opacity: 0;
-  transform: translate3d(-100%, 0, 0);
 }
 
 .menu-title {

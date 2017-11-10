@@ -1,19 +1,20 @@
 <template>
   <div class="hello">
+
     <app-header></app-header>
+
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
 
     <group>
       <cell title="title" value="value">
-        fdsafds
       </cell>
     </group>
 
     <x-button type="primary" @click.native="alert()">primary</x-button>
     <button @click="alert()">alert</button>
     <button @click="toast()">toast</button>
-    <app-footer></app-footer>
+    <!-- <app-footer></app-footer> -->
 
   </div>
 </template>
@@ -21,7 +22,6 @@
 <script>
 import { Group, Cell, XButton } from 'vux'
 import AppHeader from '@/common/header'
-import AppFooter from '@/common/footer'
 
 export default {
   name: 'HelloWorld',
@@ -51,7 +51,6 @@ export default {
     Group,
     Cell,
     AppHeader,
-    AppFooter,
     XButton
   }
 }
