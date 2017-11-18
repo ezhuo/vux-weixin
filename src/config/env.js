@@ -5,13 +5,21 @@
  * imgBaseUrl: 图片所在域名地址
  */
 
-let routerMode = 'history'
-let apiUrl = '/api/'
-let imgApiUrl = 'http://images.cangdu.org/'
+const routerMode = 'history'
+const apiUrl = '/api/'
+const imgApiUrl = 'http://images.cangdu.org/'
+const routerIndex = '/app'
+const routerLogin = '/login/'
 
 if (process.env.NODE_ENV == 'development') {
 } else if (process.env.NODE_ENV == 'production') {
   // baseUrl = 'http://cangdu.org:8001';
 }
 
-export { routerMode, apiUrl, imgApiUrl }
+export default {
+  routerMode,
+  apiUrl,
+  imgApiUrl,
+  routerIndex,
+  routerLogin
+}

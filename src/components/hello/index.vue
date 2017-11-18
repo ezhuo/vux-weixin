@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
 
-    <app-header></app-header>
+    <app-header :title='title'></app-header>
 
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
@@ -14,20 +14,32 @@
     <x-button type="primary" @click.native="alert()">primary</x-button>
     <button @click="alert()">alert</button>
     <button @click="toast()">toast</button>
+    <button @click="loading()">loading</button>
+    <button @click="ajax()">ajax</button>
     <!-- <app-footer></app-footer> -->
+
+    <div v-transfer-dom>
+      <loading :show="show1" :text="text1"></loading>
+    </div>
 
   </div>
 </template>
 
 <script>
-import { Group, Cell, XButton } from 'vux'
+import { Group, Cell, XButton, Loading, TransferDom } from 'vux'
 import AppHeader from '@/common/header'
 
 export default {
   name: 'HelloWorld',
+  directives: {
+    TransferDom
+  },
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      title: 'hello',
+      msg: 'Welcome to Your Vue.js App',
+      show1: false,
+      text1: 'hello'
     }
   },
   methods: {
@@ -45,13 +57,26 @@ export default {
     },
     toast() {
       this.$vux.toast.text('hello', 'top')
+    },
+    loading() {
+      // this.show1 = true
+      this.$vux.loading.show({
+        text: 'Loading'
+      })
+      setTimeout(() => this.$vux.loading.hide(), 30000)
+    },
+    ajax() {
+      this.$http.get('/api/data.json').then((result) => {
+         console.log(result);
+      })
     }
   },
   components: {
     Group,
     Cell,
     AppHeader,
-    XButton
+    XButton,
+    Loading
   }
 }
 </script>

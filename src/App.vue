@@ -2,11 +2,11 @@
   <div style="height:100%;">
 
     <div v-transfer-dom>
-      <loading v-model="isLoading"></loading>
+      <loading :show="router_isLoading"></loading>
     </div>
 
-    <!-- remember to import BusPlugin in main.js if you use components: x-img and sticky -->
-    <transition @after-enter="$vux.bus && $vux.bus.$emit('vux:after-view-enter')" :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')">
+    <transition @after-enter="$vux.bus && $vux.bus.$emit('vux:after-view-enter')" 
+    :name="'vux-pop-' + (app_direction === 'forward' ? 'in' : 'out')">
       <router-view class="router-view"></router-view>
     </transition>
 
@@ -31,8 +31,8 @@ export default {
     ...mapState({
       route: state => state.route,
       deviceready: state => state.app.deviceready,
-      isLoading: state => state.isLoading,
-      direction: state => state.direction
+      router_isLoading: state => state.router_isLoading,
+      app_direction: state => state.app_direction
     })
   },
   data() {
@@ -46,16 +46,10 @@ export default {
 @import '~vux/src/styles/1px.less';
 @import '~vux/src/styles/tap.less';
 @import './assets/style/index.less';
+@import './assets/style/theme.less';
 </style>
 
-
 <style lang="less">
-.router-view {
-  width: 100%;
-  // top: 46px;
-  top: 0px;
-}
-
 .vux-pop-out-enter-active,
 .vux-pop-out-leave-active,
 .vux-pop-in-enter-active,
@@ -63,7 +57,6 @@ export default {
   will-change: transform;
   transition: all 0.5s;
   height: 100%;
-  // top: 46px;
   top: 0px;
   position: absolute;
   backface-visibility: hidden;
@@ -88,63 +81,5 @@ export default {
 .vux-pop-in-leave-active {
   opacity: 0;
   transform: translate3d(-100%, 0, 0);
-}
-
-.menu-title {
-  color: #888;
-}
-.vux-demo-tabbar-component {
-  background-color: #f70968;
-  color: #fff;
-  border-radius: 7px;
-  padding: 0 4px;
-  line-height: 14px;
-}
-
-.vux-demo-header-box {
-  z-index: 100;
-  position: absolute;
-  width: 100%;
-  left: 0;
-  top: 0;
-}
-.demo-icon-22 {
-  font-family: 'vux-demo';
-  font-size: 22px;
-  color: #888;
-}
-
-.weui-tabbar.vux-demo-tabbar {
-  /** backdrop-filter: blur(10px);
-  background-color: none;
-  background: rgba(247, 247, 250, 0.5);**/
-}
-
-.vux-demo-tabbar .weui-bar__item_on .demo-icon-22 {
-  color: #f70968;
-}
-
-.vux-demo-tabbar
-  .weui-tabbar_item.weui-bar__item_on
-  .vux-demo-tabbar-icon-home {
-  color: rgb(53, 73, 94);
-}
-
-.demo-icon-22:before {
-  content: attr(icon);
-}
-
-.demo-icon {
-  font-family: 'vux-demo';
-  font-size: 20px;
-  color: #04be02;
-}
-
-.demo-icon-big {
-  font-size: 28px;
-}
-
-.demo-icon:before {
-  content: attr(icon);
 }
 </style>

@@ -6,16 +6,11 @@ html,
 body {
   height: 100%;
   width: 100%;
-  overflow-x: hidden;
-}
-
-.weui-tabbar__icon + .weui-tabbar__label {
-  margin-top: 0 !important;
+  overflow-x: hidden; // line-height: 1.2;
 }
 
 @font-face {
-  font-family: 'vux-demo';
-  /* project id 70323 */
+  font-family: 'app-icon-font';
   src: url('https://at.alicdn.com/t/font_h1fz4ogaj5cm1jor.eot');
   src: url('https://at.alicdn.com/t/font_h1fz4ogaj5cm1jor.eot?#iefix')
       format('embedded-opentype'),
@@ -23,4 +18,13 @@ body {
     url('https://at.alicdn.com/t/font_h1fz4ogaj5cm1jor.ttf') format('truetype'),
     url('https://at.alicdn.com/t/font_h1fz4ogaj5cm1jor.svg#iconfont')
       format('svg');
+}
+
+.router-view {
+  width: 100%;
+  top: 0px;
+}
+
+.vux-loading {
+  font-size: 16px;
 }

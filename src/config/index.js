@@ -1,12 +1,14 @@
-//加载插件
-import '@/config/plugin'
-
+import Vue from 'vue'
 // 加载配置
 import '@/config/rem'
+//加载插件
+import { ajaxRequest, ajaxResponse } from '@/config/plugin'
 
 import FastClick from 'fastclick'
 
 // import '@/config/mUtils'
+
+Vue.config.productionTip = false
 
 if ('addEventListener' in document) {
   document.addEventListener(
@@ -16,4 +18,10 @@ if ('addEventListener' in document) {
     },
     false
   )
+}
+
+export function created() {
+  console.log(this)
+  ajaxRequest(this)
+  ajaxResponse(this)
 }

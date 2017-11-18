@@ -11,7 +11,7 @@
 
       <!-- <app-header></app-header> -->
 
-      <router-view class="router-view"></router-view>
+      <router-view class="router-base-view"></router-view>
 
       <app-footer></app-footer>
 
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { Drawer, ViewBox, Loading, TransferDom } from 'vux'
+import { Drawer, ViewBox, TransferDom } from 'vux'
 
 import { mapState, mapActions } from 'vuex'
 import AppHeader from './header'
@@ -35,7 +35,6 @@ export default {
   components: {
     Drawer,
     ViewBox,
-    Loading,
     AppFooter,
     AppHeader,
     AppSideMenu
@@ -46,7 +45,6 @@ export default {
   computed: {
     ...mapState({
       route: state => state.route,
-      deviceready: state => state.app.deviceready,
       sideMenu: state => state.sideMenu
     })
   },
@@ -57,67 +55,9 @@ export default {
 </script>
 
 <style lang="less">
-.router-view {
+.router-base-view {
   width: 100%;
-  // top: 46px;
-  top: 0px;
-}
-
-.menu-title {
-  color: #888;
-}
-.vux-demo-tabbar-component {
-  background-color: #f70968;
-  color: #fff;
-  border-radius: 7px;
-  padding: 0 4px;
-  line-height: 14px;
-}
-
-.vux-demo-header-box {
-  z-index: 100;
-  position: absolute;
-  width: 100%;
-  left: 0;
-  top: 0;
-}
-.demo-icon-22 {
-  font-family: 'vux-demo';
-  font-size: 22px;
-  color: #888;
-}
-
-.weui-tabbar.vux-demo-tabbar {
-  /** backdrop-filter: blur(10px);
-  background-color: none;
-  background: rgba(247, 247, 250, 0.5);**/
-}
-
-.vux-demo-tabbar .weui-bar__item_on .demo-icon-22 {
-  color: #f70968;
-}
-
-.vux-demo-tabbar
-  .weui-tabbar_item.weui-bar__item_on
-  .vux-demo-tabbar-icon-home {
-  color: rgb(53, 73, 94);
-}
-
-.demo-icon-22:before {
-  content: attr(icon);
-}
-
-.demo-icon {
-  font-family: 'vux-demo';
-  font-size: 20px;
-  color: #04be02;
-}
-
-.demo-icon-big {
-  font-size: 28px;
-}
-
-.demo-icon:before {
-  content: attr(icon);
+  top: 46px;
+  // top: 0px;
 }
 </style>

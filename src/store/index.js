@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import env from '@/config/env'
 
 Vue.use(Vuex)
 
 const state = {
-  isLoading: false,
-  direction: 'forward',
+  env,
+  router_isLoading: false,
+  app_direction: 'forward',
   sideMenu: {
     drawerVisibility: false,
     showMode: 'push',
@@ -15,20 +17,14 @@ const state = {
   }
 }
 const mutations = {
-  UPDATE_LOADING(state, status) {
-    state.isLoading = status
+  UPDATE_ROUTER_LOADING(state, status) {
+    state.router_isLoading = status
   },
-  UPDATE_DIRECTION(state, direction) {
-    state.direction = direction
+  UPDATE_APP_DIRECTION(state, direction) {
+    state.app_direction = direction
   },
   updateDemoPosition(state, payload) {
     state.demoScrollTop = payload.top
-  },
-  updateLoadingStatus(state, payload) {
-    state.isLoading = payload.isLoading
-  },
-  updateDirection(state, payload) {
-    state.direction = payload.direction
   },
   updateSideMenu(state, payload) {
     Object.assign(state.sideMenu, payload)

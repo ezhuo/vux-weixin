@@ -1,39 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import { routerMode } from '@/config/env'
-import Base from '@/common/Base'
-
-import HelloWorld from '@/components/HelloWorld'
+import env from '@/config/env'
+import routes from './path.js'
+import store from '@/store'
+import { CloseDialogsPlugin } from 'vux'
+import { sync } from 'vuex-router-sync'
 
 Vue.use(Router)
 
-const router = [
-  {
-    path: '/app',
-    name: 'base',
-    component: Base,
-    children: [
-      {
-        path: '',
-        name: 'Hello',
-        component: HelloWorld
-      }
-    ]
-  },
-  {
-    path: '',
-    redirect: { name: 'Hello' }
-  },
-  {
-    path: 'dd',
-    redirect: { name: 'Hello' }
-  }
-]
-
-export default new Router({
-  mode: routerMode,
+const router = new Router({
+  mode: env.routerMode,
   strict: process.env.NODE_ENV !== 'production',
-  routes: router,
+  routes,
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition
@@ -45,3 +23,17 @@ export default new Router({
     }
   }
 })
+
+router.beforeEach(function(to, from, next) {
+  store.commit('UPDATE_ROUTER_LOADING', true)
+  next()
+})
+
+router.afterEach(function(to) {
+  store.commit('UPDATE_ROUTER_LOADING', false)
+})
+
+Vue.use(CloseDialogsPlugin, router)
+sync(store, router)
+
+export default router

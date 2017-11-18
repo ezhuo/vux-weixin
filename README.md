@@ -1,8 +1,9 @@
 # vux-weixin
 
 ## init Setup
+npm i --no-optional
 npm i --save vuex vux vuex-router-sync
-npm i --save-dev vux-loader less less-loader yaml-loader
+npm i --save-dev vux-loader less less-loader yaml-loader axios blueimp-md5
 
 ## Build Setup
 
