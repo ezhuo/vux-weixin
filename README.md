@@ -1,9 +1,17 @@
 # vux-weixin
 
 ## init Setup
+
+``` bash
 npm i --no-optional
+```
+
+## init vux
+
+``` bash
 npm i --save vuex vux vuex-router-sync
 npm i --save-dev vux-loader less less-loader yaml-loader axios blueimp-md5
+``` 
 
 ## Build Setup
 
@@ -26,5 +34,3 @@ npm run unit
 # run all tests
 npm test
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

@@ -1,7 +1,7 @@
 <template>
   <div>
     <tabbar class="vux-tabbar" icon-class="vux-center">
-      <tabbar-item :link="{path:'/app'}" :selected="route.path === env.routerIndex">
+      <tabbar-item :link="{path:'/app'}" :selected="route.name === env.routerName.index">
         <span class="app-icon-22 vux-tabbar-icon-home" slot="icon" style="position:relative;top: -2px;">&#xe637;</span>
         <span slot="label">Home</span>
       </tabbar-item>

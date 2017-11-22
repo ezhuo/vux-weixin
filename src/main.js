@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { created } from '@/config'
+import { beforeCreate, created } from '@/config'
 import App from '@/App'
 import store from '@/store'
 import router from '@/router'
@@ -9,9 +9,11 @@ let vm = new Vue({
   el: '#app',
   router,
   store,
+  beforeCreate,
   created,
   template: '<App/>',
   components: { App }
 })
 
-// console.log(vm)
+window.vm = vm
+console.log(vm)

@@ -14,13 +14,19 @@
 </template>
 
 <script>
-import { Group, Cell, XButton, TransferDom } from 'vux'
-import AppHeader from '@/common/header'
+import { TransferDom, Group, Cell, XButton, XInput } from 'vux'
+import AppHeader from '@/components/header'
 
 export default {
   name: 'index',
   directives: {
     TransferDom
+  },
+  components: {
+    Group,
+    Cell,
+    AppHeader,
+    XButton
   },
   data() {
     return {
@@ -28,13 +34,10 @@ export default {
       msg: 'index'
     }
   },
-  methods: {},
-  components: {
-    Group,
-    Cell,
-    AppHeader,
-    XButton
-  }
+  mounted() {},
+  beforeDestroy() {},
+  computed: {},
+  methods: {}
 }
 </script>
 

@@ -16,6 +16,8 @@
     <button @click="toast()">toast</button>
     <button @click="loading()">loading</button>
     <button @click="ajax()">ajax</button>
+    <button @click="login()">login</button>
+    <button @click="user()">user</button>
     <!-- <app-footer></app-footer> -->
 
     <div v-transfer-dom>
@@ -26,13 +28,20 @@
 </template>
 
 <script>
-import { Group, Cell, XButton, Loading, TransferDom } from 'vux'
-import AppHeader from '@/common/header'
+import { TransferDom, Loading, Group, Cell, XButton, XInput } from 'vux'
+import AppHeader from '@/components/header'
 
 export default {
   name: 'HelloWorld',
   directives: {
     TransferDom
+  },
+  components: {
+    Group,
+    Cell,
+    AppHeader,
+    XButton,
+    Loading
   },
   data() {
     return {
@@ -42,6 +51,9 @@ export default {
       text1: 'hello'
     }
   },
+  mounted() {},
+  beforeDestroy() {},
+  computed: {},
   methods: {
     alert() {
       this.$vux.alert.show({
@@ -66,17 +78,29 @@ export default {
       setTimeout(() => this.$vux.loading.hide(), 30000)
     },
     ajax() {
-      this.$http.get('/api/data.json').then((result) => {
-         console.log(result);
+      this.$http.get('/olderinfo?&page=1&pageSize=20&_order=').then(result => {
+        console.log(result)
       })
+    },
+    login() {
+      this.$http
+        .post('auth/login', {
+          login_type: 'sys',
+          name: 'admin',
+          password: '123456'
+        })
+        .then(result => {
+          this.$session.set('id', result.data.data.token)
+          console.log(this.$session.get('id'))
+          console.log(result.data)
+        })
+        .catch(result => {
+          console.error(result)
+        })
+    },
+    user() {
+      this.$service.dialog.alert(JSON.stringify(this.$service.user()))
     }
-  },
-  components: {
-    Group,
-    Cell,
-    AppHeader,
-    XButton,
-    Loading
   }
 }
 </script>

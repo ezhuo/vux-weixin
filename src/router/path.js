@@ -1,4 +1,4 @@
-import Base from '@/common/Base'
+import Base from '@/components/Base'
 import env from '@/config/env'
 
 const isLogin = true
@@ -6,7 +6,7 @@ const isLogin = true
 //路由权限认证
 let beforeEnter = (to, from, next) => {
   if (!isLogin) {
-    next({ path: env.routerLogin, query: { redirect: to.fullPath } })
+    next({ name: env.routerName.login, query: { redirect: to.fullPath } })
   } else {
     next()
   }
@@ -16,7 +16,7 @@ let beforeEnter = (to, from, next) => {
 let beforeRouteEnter = (to, from, next) => {}
 
 //加载组件
-let include = (component, dir = 'components') => {
+let include = (component, dir = 'views') => {
   return import(`../${dir}/${component}`)
 }
 
@@ -31,7 +31,7 @@ const routes = [
       {
         path: '',
         alias: 'index',
-        name: 'index',
+        name: 'app.index',
         component: () => include('index')
       },
       {
@@ -49,7 +49,7 @@ const routes = [
   },
   {
     path: '',
-    redirect: { name: 'index' }
+    redirect: { name: 'app.index' }
   }
 ]
 

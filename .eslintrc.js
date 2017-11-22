@@ -31,6 +31,9 @@ module.exports = {
     'eol-last': 0,
     'no-trailing-spaces': 1,
     eqeqeq: 0,
-    'no-useless-escape': 0
+    'no-useless-escape': 0,
+    'no-eval': 0,
+    camelcase: 0,
+    'no-extend-native': 0
   }
 }
