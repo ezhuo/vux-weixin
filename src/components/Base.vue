@@ -11,7 +11,9 @@
 
       <!-- <app-header></app-header> -->
 
-      <router-view class="router-base-view"></router-view>
+      <transition @after-enter="$vux.bus && $vux.bus.$emit('vux:after-view-enter')" :name="transitionName">
+        <router-view class="router-base-view"></router-view>
+      </transition>
 
       <app-footer></app-footer>
 
@@ -45,8 +47,15 @@ export default {
   computed: {
     ...mapState({
       route: state => state.route,
-      sideMenu: state => state.sideMenu
-    })
+      sideMenu: state => state.sideMenu,
+      app_direction: state => state.app_direction
+    }),
+    transitionName() {
+      return (
+        'router-' +
+        (this.$store.state.app_direction === 'forward' ? 'left' : 'right')
+      )
+    }
   },
   data() {
     return {}
@@ -54,10 +63,23 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .router-base-view {
   width: 100%;
   top: 46px;
   // top: 0px;
+}
+
+.router-left-enter,
+.router-right-leave-active {
+  opacity: 0;
+  -webkit-transform: translate(30px, 0);
+  transform: translate(30px, 0);
+}
+.router-left-leave-active,
+.router-right-enter {
+  opacity: 0;
+  -webkit-transform: translate(-30px, 0);
+  transform: translate(-30px, 0);
 }
 </style>

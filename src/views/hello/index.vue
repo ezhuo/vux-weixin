@@ -18,6 +18,7 @@
     <button @click="ajax()">ajax</button>
     <button @click="login()">login</button>
     <button @click="user()">user</button>
+    <button @click="post()">post</button>
     <!-- <app-footer></app-footer> -->
 
     <div v-transfer-dom>
@@ -100,6 +101,11 @@ export default {
     },
     user() {
       this.$service.dialog.alert(JSON.stringify(this.$service.user()))
+    },
+    post() {
+      this.$http.post('/test/post', { aaa: 'fdsa客户' }).then(result => {
+        console.log(result)
+      })
     }
   }
 }

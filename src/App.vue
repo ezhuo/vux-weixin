@@ -5,8 +5,7 @@
       <loading :show="router_isLoading"></loading>
     </div>
 
-    <transition @after-enter="$vux.bus && $vux.bus.$emit('vux:after-view-enter')" 
-    :name="'vux-pop-' + (app_direction === 'forward' ? 'in' : 'out')">
+    <transition @after-enter="$vux.bus && $vux.bus.$emit('vux:after-view-enter')" :name="transitionName">
       <router-view class="router-view"></router-view>
     </transition>
 
@@ -33,7 +32,13 @@ export default {
       deviceready: state => state.app.deviceready,
       router_isLoading: state => state.router_isLoading,
       app_direction: state => state.app_direction
-    })
+    }),
+    transitionName() {
+      return (
+        'vux-pop-' +
+        (this.$store.state.app_direction === 'forward' ? 'in' : 'out')
+      )
+    }
   },
   data() {
     return {}
@@ -49,7 +54,7 @@ export default {
 @import './assets/style/theme.less';
 </style>
 
-<style lang="less">
+<style lang="less" scoped>
 .vux-pop-out-enter-active,
 .vux-pop-out-leave-active,
 .vux-pop-in-enter-active,

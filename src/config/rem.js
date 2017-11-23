@@ -1,7 +1,18 @@
 import FastClick from 'fastclick'
-
+//添加fastclick
 ;(function(doc, win) {
-  var docEl = doc.documentElement,
+  if ('addEventListener' in doc) {
+    doc.addEventListener(
+      'DOMContentLoaded',
+      function() {
+        FastClick.attach(doc.body)
+      },
+      false
+    )
+  }
+})(document, window)
+;(function(doc, win) {
+  let docEl = doc.documentElement,
     resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
     recalc = function() {
       var clientWidth = docEl.clientWidth
@@ -12,13 +23,3 @@ import FastClick from 'fastclick'
   win.addEventListener(resizeEvt, recalc, false)
   doc.addEventListener('DOMContentLoaded', recalc, false)
 })(document, window)
-
-if ('addEventListener' in document) {
-  document.addEventListener(
-    'DOMContentLoaded',
-    function() {
-      FastClick.attach(document.body)
-    },
-    false
-  )
-}
