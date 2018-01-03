@@ -11,10 +11,12 @@ const interceptorsAjax = function() {
   // Add a request interceptor
   self.$axios.interceptors.request.use(
     config => {
+      config.timeout = env.appConfig.ajax_timeout
       Object.assign(
         config.headers,
         _config.set_request_header(config.data, vm.$service.token.read())
       )
+      if (env.appConfig.app_debug) console.log(config)
       return config
     },
     error => {

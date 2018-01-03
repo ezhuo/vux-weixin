@@ -34,6 +34,7 @@ module.exports = {
     'no-useless-escape': 0,
     'no-eval': 0,
     camelcase: 0,
-    'no-extend-native': 0
+    'no-extend-native': 0,
+    // 'no-undef': 0
   }
 }

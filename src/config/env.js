@@ -1,45 +1,40 @@
-const routerMode = 'history'
+// const routerMode = 'history'
+const routerMode = 'hash'
 
 const appConfig = {
-  debug: true,
+  app_debug: true,
+
   app_code: 'weixin',
-  name: '养老服务需求评估系统',
-  author: '资石科技 zishikeji.com',
-  description: '养老服务需求评估系统v1.0',
-  version: '1.0',
-  js_ver: '20161016',
+
+  app_name: '养老服务需求评估系统',
+
+  app_description: '养老服务需求评估系统v1.0',
+
+  app_ver: '1.0',
 
   //用户默认图片
-  default_user_images: 'assets/images/user/default_user.png',
+  user_images: 'assets/images/user/default_user.png',
 
   //默认用户的图片
-  default_user_cut_images: 'assets/images/user/default_user.png',
+  user_cut_images: 'assets/images/user/default_user.png',
 
   //默认页记录数
-  default_page_size: 20,
+  page_size: 20,
 
   //table page size
-  default_table_page_size: 10,
+  table_page_size: 10,
 
-  //获取区域的默认URL
-  canton_select_url: 'canton/selectselectselect',
+  canton_id: null, //默认区域ID
 
-  app_canton_id: null, //默认区域ID
-  app_canton_fdn: null, //默认区域
-  app_canton_name: null,
-  file_url_root: null, //文件根据目录
+  canton_fdn: null, //默认区域
 
-  //缓存列表
-  cache_tpl: [],
-  cache_undelete_tpl: [],
-  cache_models: [],
+  canton_name: null,
 
-  //local  or session
-  cache_driver: 'local',
-  cache_token: 'session',
+  file_root: null, //文件根据目录
 
-  //消息提醒，时间间隔
-  message_timeval: 8 * 1000
+  ajax_message_timeval: 8 * 1000, //消息提醒，时间间隔
+
+  ajax_timeout: 30 * 1000 //消息提醒，timeout
 }
 
 const sessionConfig = {
@@ -58,7 +53,9 @@ const apiConfig = {
     checktoken: '/auth/checktoken',
     logout: '/auth/logout',
     user: '/auth/userinfo'
-  }
+  },
+  //获取区域的默认URL
+  canton_select: 'canton/selectselectselect'
 }
 
 const routerPath = {}

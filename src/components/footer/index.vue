@@ -2,11 +2,11 @@
   <div>
     <tabbar class="vux-tabbar" icon-class="vux-center">
       <tabbar-item :link="{path:'/app'}" :selected="route.name === env.routerName.index">
-        <span class="app-icon-22 vux-tabbar-icon-home" slot="icon" style="position:relative;top: -2px;">&#xe637;</span>
+        <span class="app-icon app-icon-big vux-tabbar-icon-home" slot="icon">&#xe62e;</span>
         <span slot="label">Home</span>
       </tabbar-item>
       <tabbar-item :link="{path:'/app/hello'}" badge="9">
-        <span class="app-icon-22" slot="icon">&#xe633;</span>
+        <span class="app-icon app-icon-big" slot="icon">&#xe696;</span>
         <span slot="label"> demo </span>
       </tabbar-item>
 
@@ -78,7 +78,7 @@ export default {
   background: rgba(247, 247, 250, 0.5);
 }
 
-.vux-tabbar .weui-bar__item_on .app-icon-22 {
+.vux-tabbar .weui-bar__item_on .app-icon {
   color: #f70968;
 }
 .vux-tabbar .weui-tabbar_item.weui-bar__item_on .vux-tabbar-icon-home {
@@ -100,9 +100,11 @@ export default {
 // ----- ICON ----------------
 
 .app-icon {
-  font-family: 'vux-demo';
+  font-family: 'iconfont';
   font-size: 20px;
   color: #04be02;
+  position:relative;
+  top: -5px;
 }
 
 .app-icon:before {
@@ -113,13 +115,4 @@ export default {
   font-size: 28px;
 }
 
-.app-icon-22 {
-  font-family: 'app-icon-font';
-  font-size: 22px;
-  color: #888;
-}
-
-.app-icon-22:before {
-  content: attr(icon);
-}
 </style>

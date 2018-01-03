@@ -3,6 +3,9 @@ import { beforeCreate, created } from '@/config'
 import App from '@/App'
 import store from '@/store'
 import router from '@/router'
+import {test1} from '@/config/test'
+
+console.log(test1)
 
 /* eslint-disable no-new */
 let vm = new Vue({
@@ -16,4 +19,4 @@ let vm = new Vue({
 })
 
 window.vm = vm
-console.log(vm)
+// console.log(vm)

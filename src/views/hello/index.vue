@@ -79,7 +79,7 @@ export default {
       setTimeout(() => this.$vux.loading.hide(), 30000)
     },
     ajax() {
-      this.$http.get('/olderinfo?&page=1&pageSize=20&_order=').then(result => {
+      this.$http.get('/orginfo?&page=1&pageSize=20&_order=').then(result => {
         console.log(result)
       })
     },
