@@ -40,7 +40,7 @@ module.exports = {
       },
 
       '/api': {
-        target: 'http://127.0.0.1:8090/api/sys/pc/v1',
+        target: 'http://127.0.0.1:3022/api/sys/pc/v1',
         changeOrigin: true,
         pathRewrite: {
           '^/api': '/'

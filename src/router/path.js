@@ -6,7 +6,12 @@ const isLogin = true
 //路由权限认证
 let beforeEnter = (to, from, next) => {
   if (!isLogin) {
-    next({ name: env.routerName.login, query: { redirect: to.fullPath } })
+    next({
+      name: env.routerName.login,
+      query: {
+        redirect: to.fullPath
+      }
+    })
   } else {
     next()
   }
@@ -20,15 +25,13 @@ let include = (component, dir = 'views') => {
   return import(`../${dir}/${component}`)
 }
 
-const routes = [
-  {
+const routes = [{
     path: '/app',
     name: 'base',
     component: Base,
     beforeEnter,
     // beforeRouteEnter,
-    children: [
-      {
+    children: [{
         path: '',
         alias: 'index',
         name: 'app.index',
@@ -37,7 +40,9 @@ const routes = [
       {
         path: 'hello',
         name: 'Hello',
-        meta: { requiresAuth: true },
+        meta: {
+          requiresAuth: true
+        },
         component: () => include('hello')
       }
     ]
@@ -49,7 +54,9 @@ const routes = [
   },
   {
     path: '',
-    redirect: { name: 'app.index' }
+    redirect: {
+      name: 'app.index'
+    }
   }
 ]
 

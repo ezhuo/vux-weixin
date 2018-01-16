@@ -5,7 +5,7 @@ import _object from '@/public/object.public'
 /**
  * 注入拦截
  */
-const interceptorsAjax = function() {
+const interceptorsAjax = function () {
   let self = this
   let vm = this
   // Add a request interceptor
@@ -72,13 +72,15 @@ const interceptorsAjax = function() {
       return response
     },
     error => {
+      console.error(error);
+      if (!error) return Promise.reject(error);
       try {
+        vm.$service.notice.clear()
         error = error.response
         if (env.appConfig.debug) console.error(error)
         var $http_code = error.status
         var $notice = 'warn'
         var $message = ''
-        vm.$service.notice.clear()
 
         let format_validate_message = $str => {
           var $msg_str = $str

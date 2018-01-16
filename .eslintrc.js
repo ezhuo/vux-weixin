@@ -27,7 +27,10 @@ module.exports = {
     'one-var': 0,
     indent: [0, 2, 4], //缩进风格
     semi: [0, 'always'], //语句强制分号结尾
-    'semi-spacing': [0, { before: false, after: true }], //分号前后空格
+    'semi-spacing': [0, {
+      before: false,
+      after: true
+    }], //分号前后空格
     'eol-last': 0,
     'no-trailing-spaces': 1,
     eqeqeq: 0,
@@ -35,6 +38,7 @@ module.exports = {
     'no-eval': 0,
     camelcase: 0,
     'no-extend-native': 0,
+    "handle-callback-err": 0
     // 'no-undef': 0
   }
 }

@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import { TransferDom, Group, Cell, XButton, XInput } from 'vux'
-import { mapState, mapActions } from 'vuex'
-import env from '@/config/env'
+import { TransferDom, Group, Cell, XButton, XInput } from 'vux';
+import { mapState, mapActions } from 'vuex';
+import env from '@/config/env';
 
 export default {
   directives: {
@@ -27,7 +27,7 @@ export default {
         password: ''
       },
       loginData: {}
-    }
+    };
   },
   mounted() {},
   beforeDestroy() {},
@@ -36,34 +36,33 @@ export default {
     onBlur(self, type) {
       this.$data.iconType[type] = this.$data.loginData[type]
         ? 'success'
-        : 'error'
+        : 'error';
     },
     login() {
-      let self = this
+      let self = this;
+
       if (!self.$data.loginData.name || !self.$data.loginData.password) {
-        self.$service.notice.warn('请输入帐号和密码')
-        return false
+        self.$service.notice.warn('请输入帐号和密码');
+        return false;
       }
-      self.$service.notice.loading('正在登录...')
-      self.$http
-        .post(
-          env.apiConfig.auth.login,
-          Object.assign({ login_type: 'sys' }, this.$data.loginData)
-        )
-        .then(result => {
-          self.$service.token.write(result.data.data.token)
+      self.$service.notice.loading('正在登录...');
+      // self.$service.auth.login(self.$data);
+      console.log(self.$service.auth);
+      self.$service.auth
+        .login(Object.assign({ login_type: 'sys' }, this.$data.loginData))
+        .then(function(result) {
           self.$http.post(env.apiConfig.auth.user, {}).then(user => {
-            self.$service.notice.success('登录成功')
-            self.$service.token.writeUser(user.data.data)
-            self.$router.push({ name: env.routerName.index })
-          })
+            self.$service.notice.success('登录成功');
+            self.$service.token.writeUser(user.data.data);
+            self.$router.push({ name: env.routerName.index });
+          });
         })
-        .catch(result => {
-          // self.$service.notice.warn('登录失败！')
-        })
+        .catch(err => {
+          self.$service.notice.warn('登录失败！');
+        });
     }
   }
-}
+};
 </script>
 
 <style lang="less" scoped>

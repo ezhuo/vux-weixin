@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import { Actionsheet, XHeader, TransferDom } from 'vux'
-import { mapState, mapActions } from 'vuex'
+import { Actionsheet, XHeader, TransferDom } from 'vux';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   props: ['title'],
@@ -30,12 +30,12 @@ export default {
   mounted() {},
   methods: {
     onClickMore() {
-      this.showMenu = true
+      this.showMenu = true;
     },
     updateSideMenu() {
       this.$store.commit('updateSideMenu', {
         drawerVisibility: !this.sideMenu.drawerVisibility
-      })
+      });
     }
   },
 
@@ -49,17 +49,17 @@ export default {
     leftOptions() {
       return {
         showBack: true
-      }
+      };
     },
     rightOptions() {
       return {
         showMore: true
-      }
+      };
     },
     headerTransition() {
       return this.app_direction === 'forward'
         ? 'vux-header-fade-in-right'
-        : 'vux-header-fade-in-left'
+        : 'vux-header-fade-in-left';
     }
   },
   data() {
@@ -70,11 +70,13 @@ export default {
         'zh-CN': '中文',
         en: 'English'
       }
-    }
+    };
   }
-}
+};
 </script>
 
 <style>
-
+.vux-header {
+  background-color:blue !important;
+}
 </style>

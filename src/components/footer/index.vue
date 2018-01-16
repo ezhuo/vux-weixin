@@ -2,7 +2,7 @@
   <div>
     <tabbar class="vux-tabbar" icon-class="vux-center">
       <tabbar-item :link="{path:'/app'}" :selected="route.name === env.routerName.index">
-        <span class="app-icon app-icon-big vux-tabbar-icon-home" slot="icon">&#xe62e;</span>
+        <span class="app-icon app-icon-big" slot="icon">&#xe641;</span>
         <span slot="label">Home</span>
       </tabbar-item>
       <tabbar-item :link="{path:'/app/hello'}" badge="9">
@@ -10,27 +10,17 @@
         <span slot="label"> demo </span>
       </tabbar-item>
 
-      <tabbar-item :link="{path:'/'}">
-        <img slot="icon" src="../../assets/images/ic_nav_news_normal.png">
-        <img slot="icon-active" src="../../assets/images/ic_nav_news_actived.png">
-        <span slot="label">综合</span>
-      </tabbar-item>
-      <tabbar-item :link="{path:'/'}">
-        <img slot="icon" src="../../assets/images/ic_nav_tweet_normal.png">
-        <img slot="icon-active" src="../../assets/images/ic_nav_tweet_actived.png">
-        <span slot="label">动弹</span>
-      </tabbar-item>
-      <tabbar-item :link="{path:'/'}">
+      <tabbar-item :link="{path:'/login'}">
         <img style="height:40px;width:40px;" slot="icon" src="../../assets/images/ic_nav_add_normal.png">
       </tabbar-item>
-      <tabbar-item :link="{path:'/login'}">
-        <img slot="icon" src="../../assets/images/ic_nav_discover_normal.png">
-        <img slot="icon-active" src="../../assets/images/ic_nav_discover_actived.png">
-        <span slot="label">发现</span>
+
+      <tabbar-item :link="{path:'/'}">
+        <span class="app-icon app-icon-big" slot="icon">&#xe627;</span>
+        <span slot="label">综合</span>
       </tabbar-item>
+
       <tabbar-item :link="{path:'/mysettings'}">
-        <img slot="icon" src="../../assets/images/ic_nav_my_normal.png">
-        <img slot="icon-active" src="../../assets/images/ic_nav_my_pressed.png">
+        <span class="app-icon app-icon-big" slot="icon">&#xe601;</span>
         <span slot="label">我的</span>
       </tabbar-item>
     </tabbar>
@@ -40,8 +30,8 @@
 
 
 <script>
-import { Tabbar, TabbarItem } from 'vux'
-import { mapState } from 'vuex'
+import { Tabbar, TabbarItem } from 'vux';
+import { mapState } from 'vuex';
 
 export default {
   name: 'AppFooter',
@@ -52,7 +42,7 @@ export default {
   data() {
     return {
       index: 0
-    }
+    };
   },
   computed: {
     ...mapState({
@@ -62,14 +52,13 @@ export default {
   },
   methods: {
     onclick1() {
-      console.log(1)
+      console.log(1);
     }
   }
-}
+};
 </script>
 
 <style lang="less">
-
 // tabbar -------------------------
 
 .weui-tabbar.vux-tabbar {
@@ -103,7 +92,7 @@ export default {
   font-family: 'iconfont';
   font-size: 20px;
   color: #04be02;
-  position:relative;
+  position: relative;
   top: -5px;
 }
 
@@ -114,5 +103,4 @@ export default {
 .app-icon-big {
   font-size: 28px;
 }
-
 </style>

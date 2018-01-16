@@ -1,41 +1,58 @@
 import _object from '@/public/object.public'
+import env from '../config/env';
 
-const Storage = function($cache) {
-  this.$cache = window[$cache]
-}
+class Storage {
+  $cache = null;
+  config = env.appConfig;
 
-Storage.prototype.set = function(key, value) {
-  if (_object.isObject(value) || _object.isArray(value)) {
-    return this.$cache.setItem(key, JSON.stringify(value))
-  } else {
-    return this.$cache.setItem(key, value)
+  static local() {
+    return new Storage('localStorage')
   }
-}
 
-Storage.prototype.get = function(key) {
-  return this.$cache.getItem(key)
-}
+  static session() {
+    return new Storage('sessionStorage')
+  }
 
-Storage.prototype.remove = function(key) {
-  return this.$cache.removeItem(key)
-}
+  constructor($cache) {
+    this.$cache = window[$cache]
+  }
 
-Storage.prototype.clear = function() {
-  return this.$cache.clear()
-}
+  getKey(k) {
+    return this.config.app_code.toString() + '-' + k;
+  }
 
-Storage.prototype.exists = function(key) {
-  let v = this.get(key) || ''
-  return false
+  set(key, value) {
+    if (_object.isObject(value) || _object.isArray(value)) {
+      return this.$cache.setItem(this.getKey(key), JSON.stringify(value))
+    } else {
+      return this.$cache.setItem(this.getKey(key), value)
+    }
+  }
+
+  get(key) {
+    return this.$cache.getItem(this.getKey(key))
+  }
+
+  remove(key) {
+    return this.$cache.removeItem(this.getKey(key))
+  }
+
+  clear() {
+    return this.$cache.clear()
+  }
+
+  exists(key) {
+    return this.get(this.getKey(key)) || false;
+  }
 }
 
 export default {
   install(Vue, options) {
     Object.defineProperty(Vue.prototype, '$session', {
-      value: new Storage('sessionStorage')
+      value: Storage.local()
     })
     Object.defineProperty(Vue.prototype, '$local', {
-      value: new Storage('localStorage')
+      value: Storage.session()
     })
   }
 }
