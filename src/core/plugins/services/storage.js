@@ -1,7 +1,7 @@
 import _object from '@/public/object.public'
-import env from '../config/env';
+import env from '@/core/config/env';
 
-class Storage {
+export default class Storage {
   $cache = null;
   config = env.appConfig;
 
@@ -43,16 +43,5 @@ class Storage {
 
   exists(key) {
     return this.get(this.getKey(key)) || false;
-  }
-}
-
-export default {
-  install(Vue, options) {
-    Object.defineProperty(Vue.prototype, '$session', {
-      value: Storage.local()
-    })
-    Object.defineProperty(Vue.prototype, '$local', {
-      value: Storage.session()
-    })
   }
 }

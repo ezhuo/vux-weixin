@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import env from '@/config/env'
+import env from '@/core/config/env'
 
 Vue.use(Vuex)
 

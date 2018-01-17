@@ -11,7 +11,7 @@
       </tabbar-item>
 
       <tabbar-item :link="{path:'/login'}">
-        <img style="height:40px;width:40px;" slot="icon" src="../../assets/images/ic_nav_add_normal.png">
+        <img style="height:40px;width:40px;" slot="icon" src="../../../assets/images/ic_nav_add_normal.png">
       </tabbar-item>
 
       <tabbar-item :link="{path:'/'}">

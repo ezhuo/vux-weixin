@@ -1,5 +1,5 @@
-import Base from '@/components/Base'
-import env from '@/config/env'
+import Base from '@/theme/components/Base'
+import env from '@/core/config/env'
 
 const isLogin = true
 
@@ -22,7 +22,7 @@ let beforeRouteEnter = (to, from, next) => {}
 
 //加载组件
 let include = (component, dir = 'views') => {
-  return import(`../${dir}/${component}`)
+  return import(`../../${dir}/${component}`)
 }
 
 const routes = [{

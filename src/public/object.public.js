@@ -4,14 +4,15 @@ let _object = {}
  * 判断类型
  * @param {*} o
  */
-_object.typeCheck = function(o) {
+_object.typeCheck = function (o) {
   var s = Object.prototype.toString.call(o)
   return s.match(/\[object (.*?)\]/)[1].toLowerCase()
 }
 /**
  * 在_object上绑定一些类型检测
  */
-;[
+;
+[
   'Null',
   'Undefined',
   'Object',
@@ -21,8 +22,8 @@ _object.typeCheck = function(o) {
   'Boolean',
   'Function',
   'RegExp'
-].forEach(function(t) {
-  _object['is' + t] = function(o) {
+].forEach(function (t) {
+  _object['is' + t] = function (o) {
     return _object.typeCheck(o) === t.toLowerCase()
   }
 })
@@ -32,7 +33,7 @@ _object.typeCheck = function(o) {
  * @param str
  * @returns {boolean}
  */
-_object.isJson = function(str) {
+_object.isJson = function (str) {
   if (typeof str == 'string') {
     try {
       if (str.indexOf('{') > -1) {
@@ -54,7 +55,7 @@ _object.isJson = function(str) {
  * @param str
  * @returns {boolean}
  */
-_object.isImagesJson = function(str) {
+_object.isImagesJson = function (str) {
   if (typeof str == 'string') {
     try {
       if (str.indexOf('{') > -1 && str.indexOf('lastModifiedDate') > -1) {
@@ -75,7 +76,7 @@ _object.isImagesJson = function(str) {
  * @param obj
  * @returns {number}
  */
-_object.isObjectEmpty = function(obj) {
+_object.isObjectEmpty = function (obj) {
   if (obj) {
     for (let prop in obj) {
       if (obj.hasOwnProperty(prop)) {
@@ -87,7 +88,7 @@ _object.isObjectEmpty = function(obj) {
 }
 
 //是否存在指定函数
-_object.isExitsFunction = function(funcName) {
+_object.isExitsFunction = function (funcName) {
   try {
     if (typeof eval(funcName) == 'function') {
       return true
@@ -97,13 +98,11 @@ _object.isExitsFunction = function(funcName) {
 }
 
 //是否存在指定变量
-_object.isExitsVariable = function(variableName) {
+_object.isExitsVariable = function (variableName) {
   try {
     if (typeof variableName == 'undefined') {
-      //alert("value is undefined");
       return false
     } else {
-      //alert("value is true");
       return true
     }
   } catch (e) {}
@@ -111,10 +110,41 @@ _object.isExitsVariable = function(variableName) {
 }
 
 //判断参数是否为NULL
-_object.isNull = function(arg, newValue) {
+_object.isNull2 = function (arg, newValue) {
   arg = arg == 'null' ? null : arg
   if (newValue == null) return arg == null
   else return arg == null ? newValue : arg
+}
+
+_object.IsEmpty = function (obj) {
+  if (obj == null || obj === undefined) return true;
+
+  if (_object.isObject(obj)) {
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  if (_object.isArray(obj)) {
+    return obj.length === 0;
+  }
+
+  let isR = (Boolean(obj));
+  return !isR;
+}
+
+_object.parseJSON = function (obj) {
+  if (obj == null || obj === undefined) {
+    return obj;
+  }
+  try {
+    return JSON.parse(obj);
+  } catch (e) {
+    return null;
+  }
 }
 
 export default _object

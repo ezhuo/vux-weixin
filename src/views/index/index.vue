@@ -15,7 +15,7 @@
 
 <script>
 import { TransferDom, Group, Cell, XButton, XInput } from 'vux'
-import AppHeader from '@/components/header'
+import AppHeader from '@/theme/components/header'
 
 export default {
   name: 'index',

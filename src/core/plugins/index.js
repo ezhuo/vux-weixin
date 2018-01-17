@@ -1,8 +1,7 @@
 import Vue from 'vue'
-import AjaxPlugin from './ajax'
-import StoragePlugin from './storage'
+import AjaxPlugin from './http/index'
 import ServicesPlugin from './services/index'
-import env from '@/config/env'
+import env from '../config/env'
 
 import {
   // DatetimePlugin,
@@ -24,7 +23,6 @@ Vue.use(WechatPlugin)
 Vue.use(AjaxPlugin)
 Vue.use(BusPlugin)
 Vue.use(DevicePlugin)
-Vue.use(StoragePlugin)
 Vue.use(ServicesPlugin)
 
 Vue.use(ConfigPlugin, {

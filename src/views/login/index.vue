@@ -13,7 +13,7 @@
 <script>
 import { TransferDom, Group, Cell, XButton, XInput } from 'vux';
 import { mapState, mapActions } from 'vuex';
-import env from '@/config/env';
+import env from '@/core/config/env';
 
 export default {
   directives: {
@@ -49,13 +49,10 @@ export default {
       // self.$service.auth.login(self.$data);
       console.log(self.$service.auth);
       self.$service.auth
-        .login(Object.assign({ login_type: 'sys' }, this.$data.loginData))
+        .doLogin(Object.assign({ login_type: 'sys' }, this.$data.loginData))
         .then(function(result) {
-          self.$http.post(env.apiConfig.auth.user, {}).then(user => {
-            self.$service.notice.success('登录成功');
-            self.$service.token.writeUser(user.data.data);
-            self.$router.push({ name: env.routerName.index });
-          });
+          self.$router.push({ name: env.routerName.index });
+          self.$service.notice.success('登录成功');
         })
         .catch(err => {
           self.$service.notice.warn('登录失败！');

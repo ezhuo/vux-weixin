@@ -30,7 +30,7 @@
 
 <script>
 import { TransferDom, Loading, Group, Cell, XButton, XInput } from 'vux'
-import AppHeader from '@/components/header'
+import AppHeader from '@/theme/components/header'
 
 export default {
   name: 'HelloWorld',
@@ -91,8 +91,8 @@ export default {
           password: '123456'
         })
         .then(result => {
-          this.$session.set('id', result.data.data.token)
-          console.log(this.$session.get('id'))
+          this.$service.session.set('id', result.data.data.token)
+          console.log(this.$service.session.get('id'))
           console.log(result.data)
         })
         .catch(result => {

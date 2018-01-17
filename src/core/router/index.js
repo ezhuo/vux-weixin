@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import env from '@/config/env'
+import env from '@/core/config/env'
 import routes from './path.js'
-import store from '@/store'
+import store from '../store'
 import {
   CloseDialogsPlugin
 } from 'vux'
