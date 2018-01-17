@@ -1,9 +1,14 @@
 import Vue from 'vue'
-import { beforeCreate, created } from '@/core/config'
-import App from '@/App'
-import store from '@/core/store'
-import router from '@/core/router'
-import {test1} from '@/core/config/test'
+import {
+  beforeCreate,
+  created
+} from './app/@core/public'
+import App from './App'
+import store from './app/@core/store'
+import router from './app/@core/router'
+import {
+  test1
+} from './app/@core/public/test'
 console.log(test1)
 
 /* eslint-disable no-new */
@@ -14,7 +19,9 @@ let vm = new Vue({
   beforeCreate,
   created,
   template: '<App/>',
-  components: { App }
+  components: {
+    App
+  }
 })
 
 window.vm = vm
