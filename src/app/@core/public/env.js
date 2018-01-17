@@ -1,5 +1,5 @@
-// const routerMode = 'history'
-const routerMode = 'hash'
+const routerMode = 'history'
+// const routerMode = 'hash'
 
 const appConfig = {
     app_debug: true,
@@ -62,7 +62,7 @@ const routerPath = {}
 
 const routerName = {
     index: 'app.index',
-    login: 'login'
+    login: 'auth.login'
 }
 
 const appTheme = {
