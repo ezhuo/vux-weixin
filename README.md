@@ -10,8 +10,8 @@
 
 * src\app\@auth 权限登录目录
 * src\app\@core 路由，状态，及服务目录
-* src\app\helpers 公共函数目录
-* src\app\theme 公共布局目录
+* src\app\@helpers 公共函数目录
+* src\app\@theme 公共布局目录
 * src\app\pages 业务组件目录
 * src\assets 资源目录
 
