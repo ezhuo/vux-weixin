@@ -17,10 +17,10 @@
 ## 目录说明
 >看了 ngx-admin后，感觉其目录结构很清晰，所以有了下面的目录结构。
 ``` bash
-* src\app\@auth 权限登录目录
 * src\app\@core 路由，状态，及服务目录
 * src\app\@helpers 公共函数目录
 * src\app\@theme 公共布局目录
+* src\app\@theme\passport 权限登录目录
 * src\app\pages 业务组件目录
 * src\assets 资源目录
 ```

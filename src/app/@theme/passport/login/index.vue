@@ -13,7 +13,7 @@
 <script>
 import { TransferDom, Group, Cell, XButton, XInput } from 'vux';
 import { mapState, mapActions } from 'vuex';
-import env from '../../@core/public/env';
+import env from '../../../@core/public/env';
 
 export default {
   directives: {
