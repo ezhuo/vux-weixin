@@ -1,20 +1,22 @@
 import FastClick from 'fastclick'
-//添加fastclick
-;(function(doc, win) {
+
+// 添加fastclick
+;
+(function (doc, win) {
   if ('addEventListener' in doc) {
     doc.addEventListener(
       'DOMContentLoaded',
-      function() {
+      function () {
         FastClick.attach(doc.body)
       },
       false
     )
   }
-})(document, window)
-;(function(doc, win) {
+})(document, window);
+(function (doc, win) {
   let docEl = doc.documentElement,
     resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-    recalc = function() {
+    recalc = function () {
       var clientWidth = docEl.clientWidth
       if (!clientWidth) return
       docEl.style.fontSize = 20 * (clientWidth / 320) + 'px'

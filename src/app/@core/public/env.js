@@ -6,9 +6,9 @@ const appConfig = {
 
     app_code: 'weixin',
 
-    app_name: '养老服务需求评估系统',
+    app_name: 'app',
 
-    app_description: '养老服务需求评估系统v1.0',
+    app_description: 'appv1.0',
 
     app_ver: '1.0',
 
