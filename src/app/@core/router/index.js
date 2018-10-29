@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import env from '../public/env'
+import env from '../config.inc'
 import routes from './path.js'
 import store from '../store'
 import {

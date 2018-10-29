@@ -1,5 +1,5 @@
 import _object from '../../helpers/object'
-import env from '../../public/env';
+import env from '../../config.inc';
 
 export default class Storage {
   $cache = null;

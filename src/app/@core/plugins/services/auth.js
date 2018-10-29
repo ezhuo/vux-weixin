@@ -1,7 +1,7 @@
 /**
  *权限服务
  */
-import env from '../../public/env';
+import env from '../../config.inc';
 
 class Auth {
   vue = null;

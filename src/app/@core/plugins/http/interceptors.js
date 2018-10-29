@@ -1,4 +1,4 @@
-import env from '../../public/env'
+import env from '../../config.inc'
 import _config from '../../helpers/config'
 import _object from '../../helpers/object'
 
@@ -18,7 +18,7 @@ class Interceptors {
     config.timeout = env.appConfig.ajax_timeout
     Object.assign(
       config.headers,
-      _config.set_request_header(config.data, self.vue.$service.token.token_read())
+      _config.setRequestHeader(config.data, self.vue.$service.token.token_read())
     )
     if (env.appConfig.app_debug) console.log(config)
     return config

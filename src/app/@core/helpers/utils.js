@@ -1,6 +1,6 @@
 let _utils = {}
 
-_utils.img_onerror = function(e, srcUrl) {
+_utils.imgOnerror = function(e, srcUrl) {
   e.src = srcUrl
   e.onerror = null
 }
@@ -42,7 +42,7 @@ _utils.getDate = function(o) {
 }
 
 //日期比较,是否第一个时间大于第二个时间
-_utils.dayu_time = function(firstTime, secondTime) {
+_utils.dayuTime = function(firstTime, secondTime) {
   if (undefined == firstTime) return false
   firstTime = Date.parse(firstTime)
   secondTime =
@@ -91,7 +91,7 @@ _utils.ReplaceFirstUper = function(str) {
  * 获取当前URL
  * @param config
  */
-_utils.get_url = function(config) {
+_utils.getUrl = function(config) {
   let result = ''
   config = config || 'root'
   if (config == 'root') {
@@ -148,7 +148,7 @@ _utils.NewBlob = function(data, datatype) {
 }
 
 /*根据出生日期算出年龄*/
-_utils.get_age = function(strBirthday) {
+_utils.getAge = function(strBirthday) {
   let returnAge
   let strBirthdayArr = strBirthday.split('-')
   let birthYear = strBirthdayArr[0]

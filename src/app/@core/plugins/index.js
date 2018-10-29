@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import AjaxPlugin from './http/index'
 import ServicesPlugin from './services/index'
-import env from '../public/env'
+import env from '../config.inc'
 
 import {
   // DatetimePlugin,

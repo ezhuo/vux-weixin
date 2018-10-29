@@ -2,13 +2,13 @@ import Vue from 'vue'
 import {
   beforeCreate,
   created
-} from './app/@core/public'
+} from './app/@core/startup'
 import App from './App'
 import store from './app/@core/store'
 import router from './app/@core/router'
 import {
   test1
-} from './app/@core/public/test'
+} from './app/@core/test'
 console.log(test1)
 
 /* eslint-disable no-new */

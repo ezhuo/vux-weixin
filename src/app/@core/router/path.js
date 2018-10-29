@@ -1,6 +1,6 @@
 import Pages from '../../pages/pages'
 import Auth from '@/app/layout/passport/passport';
-import env from '../public/env'
+import env from '../config.inc'
 
 const isLogin = true
 

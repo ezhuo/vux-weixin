@@ -1,4 +1,4 @@
-import env from '../../public/env'
+import env from '../../config.inc'
 import _object from '../../helpers/object'
 import _utils from '../../helpers/utils'
 import interceptorsAjax from './interceptors';

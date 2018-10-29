@@ -1,9 +1,9 @@
 import md5 from 'blueimp-md5'
-import env from '../public/env'
+import env from '../config.inc'
 
 let _config = {}
 
-_config.set_request_header = function($data, $token = null) {
+_config.setRequestHeader = function($data, $token = null) {
   let headers = {}
   let rData = $data || {}
   rData = JSON.stringify(rData)

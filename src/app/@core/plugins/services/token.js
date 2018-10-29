@@ -1,7 +1,7 @@
 /**
  * token服务
  */
-import env from '../../public/env';
+import env from '../../config.inc';
 import _object from '../../helpers/object';
 import jwtDecode from 'jwt-decode';
 

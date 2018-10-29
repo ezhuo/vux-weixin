@@ -1,7 +1,7 @@
 /**
  * 用户服务
  */
-import env from '../../public/env';
+import env from '../../config.inc';
 import _object from '../../helpers/object';
 
 class User {
