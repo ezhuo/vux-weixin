@@ -2,7 +2,7 @@
  * 用户服务
  */
 import env from '../../public/env';
-import _object from '../../../@helpers/object.helper';
+import _object from '../../helpers/object';
 
 class User {
   vue = null;

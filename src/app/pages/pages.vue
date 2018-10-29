@@ -26,9 +26,9 @@
 import { Drawer, ViewBox, TransferDom } from 'vux';
 
 import { mapState, mapActions } from 'vuex';
-import AppHeader from '../@theme/components/header';
-import AppFooter from '../@theme/components/footer';
-import AppSideMenu from '../@theme/components/menus/sideMenu';
+import AppHeader from '../layout/components/header';
+import AppFooter from '../layout/components/footer';
+import AppSideMenu from '../layout/components/menus/sideMenu';
 
 export default {
   directives: {

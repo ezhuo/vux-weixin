@@ -1,5 +1,5 @@
 import md5 from 'blueimp-md5'
-import env from '../@core/public/env'
+import env from '../public/env'
 
 let _config = {}
 

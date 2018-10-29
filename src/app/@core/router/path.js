@@ -1,5 +1,5 @@
 import Pages from '../../pages/pages'
-import Auth from '@/app/@theme/passport/passport';
+import Auth from '@/app/layout/passport/passport';
 import env from '../public/env'
 
 const isLogin = true
@@ -57,7 +57,7 @@ const auth = {
     path: 'login',
     name: 'auth.login',
     component: () =>
-      include('login', `@theme/passport`)
+      include('login', `layout/passport`)
   }]
 };
 

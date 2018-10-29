@@ -10,12 +10,13 @@
       </cell>
     </group>
 
+    <img src="../../../assets/images/bg_cir.png" />
   </div>
 </template>
 
 <script>
 import { TransferDom, Group, Cell, XButton, XInput } from 'vux'
-import AppHeader from '@/app/@theme/components/header'
+import AppHeader from '@/app/layout/components/header'
 
 export default {
   name: 'index',

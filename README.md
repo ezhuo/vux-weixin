@@ -32,8 +32,10 @@
 npm install --no-optional
 
 # install vux
-npm i --save vuex vux vuex-router-sync
-npm i --save-dev vux-loader less less-loader yaml-loader axios blueimp-md5 jwt-decode
+npm i --save vux vuex vuex-router-sync axios blueimp-md5 jwt-decode
+npm i --save-dev less-loader yaml-loader vux-loader eslint-plugin-html --dev
+yarn add vux vuex vuex-router-sync axios blueimp-md5 jwt-decode
+yarn add less less-loader yaml-loader vux-loader eslint-plugin-html --dev
 
 # serve with hot reload at localhost:8080
 npm run dev

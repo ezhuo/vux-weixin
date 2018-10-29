@@ -30,7 +30,7 @@
 
 <script>
 import { TransferDom, Loading, Group, Cell, XButton, XInput } from 'vux'
-import AppHeader from '@/app/@theme/components/header'
+import AppHeader from '@/app/layout/components/header'
 
 export default {
   name: 'HelloWorld',

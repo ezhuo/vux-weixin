@@ -2,7 +2,7 @@
  * token服务
  */
 import env from '../../public/env';
-import _object from '../../../@helpers/object.helper';
+import _object from '../../helpers/object';
 import jwtDecode from 'jwt-decode';
 
 class Token {

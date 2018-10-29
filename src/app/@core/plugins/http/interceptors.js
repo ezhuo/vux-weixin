@@ -1,6 +1,6 @@
 import env from '../../public/env'
-import _config from '../../../@helpers/config.helper'
-import _object from '../../../@helpers/object.helper'
+import _config from '../../helpers/config'
+import _object from '../../helpers/object'
 
 /**
  * 注入拦截

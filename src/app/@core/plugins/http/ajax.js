@@ -1,6 +1,6 @@
 import env from '../../public/env'
-import _object from '../../../@helpers/object.helper'
-import _utils from '../../../@helpers/utils.helper'
+import _object from '../../helpers/object'
+import _utils from '../../helpers/utils'
 import interceptorsAjax from './interceptors';
 
 /**

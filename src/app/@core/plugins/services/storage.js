@@ -1,4 +1,4 @@
-import _object from '../../../@helpers/object.helper'
+import _object from '../../helpers/object'
 import env from '../../public/env';
 
 export default class Storage {
