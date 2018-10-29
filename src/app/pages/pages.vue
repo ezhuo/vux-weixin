@@ -12,7 +12,7 @@
       <!-- <app-header></app-header> -->
 
       <transition @after-enter="$vux.bus && $vux.bus.$emit('vux:after-view-enter')" :name="transitionName">
-        <router-view class="router-base-view"></router-view>
+        <router-view class="router-pages"></router-view>
       </transition>
 
       <app-footer></app-footer>
@@ -52,8 +52,8 @@ export default {
     }),
     transitionName() {
       return (
-        'router-' +
-        (this.$store.state.app_direction === 'forward' ? 'left' : 'right')
+        'router-pop-' +
+        (this.$store.state.app_direction === 'forward' ? 'in' : 'out')
       );
     }
   },
@@ -64,22 +64,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.router-base-view {
+.router-pages {
   width: 100%;
-  top: 46px;
-  // top: 0px;
-}
-
-.router-left-enter,
-.router-right-leave-active {
-  opacity: 0;
-  -webkit-transform: translate(30px, 0);
-  transform: translate(30px, 0);
-}
-.router-left-leave-active,
-.router-right-enter {
-  opacity: 0;
-  -webkit-transform: translate(-30px, 0);
-  transform: translate(-30px, 0);
+  // top: 46px;
+  top: 0px;
 }
 </style>

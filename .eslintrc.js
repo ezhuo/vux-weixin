@@ -12,7 +12,7 @@ module.exports = {
   // https://github.com/standard/standard/blob/master/docs/RULES-en.md
   extends: 'standard',
   // required to lint *.vue files
-  plugins: ['vue','html'],
+  plugins: ['vue', 'html'],
   // add your custom rules here
   rules: {
     // allow paren-less arrow functions
@@ -38,7 +38,8 @@ module.exports = {
     'no-eval': 0,
     camelcase: 0,
     'no-extend-native': 0,
-    "handle-callback-err": 0
+    "handle-callback-err": 0,
+    quotes: [1, "single", { "allowTemplateLiterals": true }]
     // 'no-undef': 0
   }
 }

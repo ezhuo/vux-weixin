@@ -91,10 +91,7 @@ class Interceptors {
         var $msg_str = $str
         if (_object.isArray($str)) {
           $msg_str = $str.join('<br/>')
-          $msg_str =
-            "<div style='width: 100%'><span style='font-size: 20px;color: red'>" +
-            $msg_str +
-            '</span></div>'
+          $msg_str = '<div style="width: 100%"><span style="font-size: 20px;color: red">' + $msg_str + '</span></div>';
         }
         return $msg_str
       }

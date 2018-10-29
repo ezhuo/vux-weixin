@@ -14,7 +14,7 @@ Vue.use(Router)
 
 const router = new Router({
   mode: env.routerMode,
-  base: '/vue/',
+  base: '/',
   strict: process.env.NODE_ENV !== 'production',
   routes,
   scrollBehavior(to, from, savedPosition) {

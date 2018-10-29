@@ -1,5 +1,5 @@
 //替换字符串
-String.prototype.replaceAll = function(reallyDo, replaceWith, ignoreCase) {
+String.prototype.replaceAll = function (reallyDo, replaceWith, ignoreCase) {
   if (!RegExp.prototype.isPrototypeOf(reallyDo)) {
     return this.replace(
       new RegExp(reallyDo, ignoreCase ? 'gi' : 'g'),
@@ -10,7 +10,7 @@ String.prototype.replaceAll = function(reallyDo, replaceWith, ignoreCase) {
   }
 }
 
-Date.prototype.format = function(format) {
+Date.prototype.format = function (format) {
   var o = {
     'M+': this.getMonth() + 1, //month
     'd+': this.getDate(), //day
@@ -40,12 +40,12 @@ Date.prototype.format = function(format) {
   return format
 }
 
-JSON.parseEx = function(jsondata) {
+JSON.parseEx = function (jsondata) {
   jsondata = jsondata.replaceAll('&gt;', '>')
   jsondata = jsondata.replaceAll('&lt;', '<')
   jsondata = jsondata.replaceAll('&nbsp;', ' ')
   jsondata = jsondata.replaceAll('&quot;', '"')
-  jsondata = jsondata.replaceAll('&#39;', "'")
+  jsondata = jsondata.replaceAll('&#39;', `'`)
   jsondata = jsondata.replaceAll('\\\\', '\\')
   jsondata = jsondata.replaceAll('\\n', '\n')
   jsondata = jsondata.replaceAll('\\r', '\r')
@@ -53,9 +53,9 @@ JSON.parseEx = function(jsondata) {
   return JSON.parse(jsondata);
 }
 
-JSON.parseEx2 = function(jsondata) {
-//   var json = new Function('return ' + jsondata)()
-//   return json
+JSON.parseEx2 = function (jsondata) {
+  //   var json = new Function('return ' + jsondata)()
+  //   return json
 }
 
 /**
@@ -63,7 +63,7 @@ JSON.parseEx2 = function(jsondata) {
  * @param idx
  * @returns {boolean}
  */
-Array.prototype.remove = function(idx) {
+Array.prototype.remove = function (idx) {
   if (isNaN(idx) || idx > this.length) {
     return false
   }

@@ -1,4 +1,4 @@
-import _object from '../../helpers/object'
+import _object from '../../helpers/object';
 import env from '../../config.inc';
 
 export default class Storage {

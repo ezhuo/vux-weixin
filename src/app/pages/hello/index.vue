@@ -3,7 +3,7 @@
 
     <app-header :title='title'></app-header>
 
-    <h1>{{ msg }}</h1>
+    <h2 v-html="msg"></h2>
     <h2>Essential Links</h2>
 
     <group>
@@ -61,10 +61,10 @@ export default {
         title: 'Vux is Cool',
         content: 'Do you agree?',
         onShow() {
-          console.log("Plugin: I'm showing")
+          console.log(`Plugin: I'm showing`)
         },
         onHide() {
-          console.log("Plugin: I'm hiding")
+          console.log(`Plugin: I'm hiding`)
         }
       })
     },
